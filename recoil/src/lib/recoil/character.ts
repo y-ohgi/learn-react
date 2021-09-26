@@ -10,6 +10,6 @@ export const charaCountState: RecoilValueReadOnly<number> = selector({
   get: ({ get }): number => {
     const text: string = get(textState);
 
-    return text.length
+    return Math.floor(text.length / 3)
   }
 })

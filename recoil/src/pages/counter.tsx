@@ -1,12 +1,12 @@
 import React from 'react'
 
-import TextInput from '../components/TextInput'
+import CharacterTextInput from '../components/CharacterTextInput'
 import CharacterCount from '../components/CharacterCount'
 
 const CounterPage = (): JSX.Element => {
   return (
     <div>
-      <TextInput />
+      <CharacterTextInput />
       <CharacterCount />
     </div>
   )

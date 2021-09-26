@@ -3,7 +3,7 @@ import { useRecoilState } from 'recoil'
 
 import { textState } from '../lib/recoil/character'
 
-const TextInput = (): JSX.Element => {
+const CharacterTextInput = (): JSX.Element => {
   const [text, setText] = useRecoilState(textState)
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -19,4 +19,4 @@ const TextInput = (): JSX.Element => {
   )
 }
 
-export default TextInput
+export default CharacterTextInput
