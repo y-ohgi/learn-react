@@ -1,7 +1,9 @@
-import React, { ChangeEvent } from 'react'
-import { atom, RecoilState, RecoilValueReadOnly, selector, useRecoilState, useRecoilValue } from 'recoil'
+import React from 'react'
 
-const CharacterCounter = (): JSX.Element => {
+import TextInput from '../components/TextInput'
+import CharacterCount from '../components/CharacterCount'
+
+const CounterPage = (): JSX.Element => {
   return (
     <div>
       <TextInput />
@@ -10,39 +12,5 @@ const CharacterCounter = (): JSX.Element => {
   )
 }
 
-export default CharacterCounter
+export default CounterPage
 
-const TextInput = () => {
-  const [text, setText] = useRecoilState(textState)
-
-  const onChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setText(event.target.value)
-  }
-
-  return (
-    <div>
-      <input type='text' value={text} onChange={onChange} />
-      <br />
-      Echo: {text}
-    </div>
-  )
-}
-
-const textState: RecoilState<string> = atom({
-  key: 'textState',
-  default: '',
-})
-
-const charaCountState: RecoilValueReadOnly<number> = selector({
-  key: 'charCountState',
-  get: ({ get }): number => {
-    const text: string = get(textState);
-
-    return text.length
-  }
-})
-
-const CharacterCount = () => {
-  const count = useRecoilValue(charaCountState)
-  return <>{count}</>
-}
